@@ -1,8 +1,14 @@
 # Ruboty::Growthforecast
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruboty/growthforecast`. To experiment with that code, run `bin/console` for an interactive prompt.
+A [Ruboty](https://github.com/r7kamura/ruboty) plugin to show [GrowthForecast](http://kazeburo.github.io/GrowthForecast/) value.
 
-TODO: Delete this and the text above, and describe your gem
+```
+> ruboty gf show service/member/register
+1000
+> ruboty gf show service/member/register 今日のユーザ登録数は<%= number %>人です。
+今日のユーザ登録数は100人です。
+```
+
 
 ## Installation
 
@@ -22,18 +28,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+ruboty gf show <service_name>/<section_name>/<graph_name> [format]
+```
 
-## Development
+`format` is specified by ERB.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+## Configure
+You could set these environment variables
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+ * `GROWTHFORECAST_HOST`: host for GrowthForecast
+ * `GROWTHFORECAST_PORT`: post for GrowthForecast(default: 80)
+ * `GROWTHFORECAST_USERNAME`: username for basic authentication
+ * `GROWTHFORECAST_PASSWORD`: password for basic authentication
 
-## Contributing
+## Author
 
-1. Fork it ( https://github.com/[my-github-username]/ruboty-growthforecast/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+@mzp
