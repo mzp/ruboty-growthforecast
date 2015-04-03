@@ -13,6 +13,8 @@ module Ruboty
         def call
           number = client.by_name(*path).number
           message.reply reply_message(binding)
+        rescue => e
+          message.reply e.message
         end
 
         private
