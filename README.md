@@ -5,8 +5,8 @@ A [Ruboty](https://github.com/r7kamura/ruboty) plugin to show [GrowthForecast](h
 ```
 > ruboty gf show service/member/register
 1000
-> ruboty gf show service/member/register 今日のユーザ登録数は<%= number %>人です。
-今日のユーザ登録数は100人です。
+> ruboty gf show service/member/register 今日のユーザ登録数は<%= number %>人です。 前回より <%= delta %>人増加しています。
+今日のユーザ登録数は100人です。 前回より 10人増加しています。
 ```
 
 

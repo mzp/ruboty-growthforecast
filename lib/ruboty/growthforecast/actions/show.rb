@@ -12,12 +12,27 @@ module Ruboty
 
         def call
           number = client.by_name(*path).number
+          delta = update_number(number) { |previous, current| current - previous }
           message.reply reply_message(binding)
         rescue => e
           message.reply e.message
         end
 
         private
+
+        def brain
+          message.robot.brain.data
+        end
+
+        def previous_number
+          brain['number'] || 0
+        end
+
+        def update_number(number, &f)
+          f.call(previous_number, number).tap do
+            brain['number'] = number
+          end
+        end
 
         def format
           message[:format] || '<%= number %>'
